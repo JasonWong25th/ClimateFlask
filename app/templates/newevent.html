@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-4">
+        <a href="/calendar" class="btn btn-primary btn-md">Back to Calendar</a>
+      </div>
+      <div class="col-8">
+        <h1>New Event</h1>
+      </div>
+    </div>
+    <hr />
+    <form method=post>
+      {{ form.hidden_tag() }}
+      {{ form.title.label }}
+      {{ form.title(class_="form-control") }}
+      <br />
+      {{ form.desc.label }}
+      {{ form.desc(class_="form-control") }}
+      <br />
+      {{ form.date.label }}
+      {{ form.date(class_="form-control", type="date") }}
+      <br />
+      {{ form.time.label }}
+      {{ form.time(class_="form-control") }}
+      <br />
+      {{form.submit(class_="btn btn-primary")}}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

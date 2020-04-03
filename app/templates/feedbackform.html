@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+        <div class="containter">
+            <div class="jumbotron text-center">
+                <h3>New Feedback</h3>
+            </div>
+            <!-- This displays any errors that are stored in the form object.  There would be errors in the object if the user
+                 tries to submit the form and form.valid_onSubmit() if False.  That invalid submission writes the specific errors
+                 to to a pythion list at form.errors. The code below iterates over that list if it exists. -->
+            {% for field in form.errors %}
+                {% for error in form.errors[field] %}
+                    <div class="alert alert-error">
+                        <strong>Error!</strong>{{field}}: {{error}}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <form method=post>
+                <table class="table">
+                <!--This displays the form from the form 0bject that was passed to the template. If the fileds 
+                    have values in themthat were set by the routes code, then it will be editing.  If they are 
+                    empty it will create a new secion. -->
+                <tr><td>{{ form.hidden_tag() }}{{ form.subject.label }}</td><td>{{ form.subject() }}</td></tr>
+                {% if session.admin %}
+                    <tr><td>{{ form.priority.label }}</td><td>{{ form.priority() }}</td></tr>
+                    <tr><td>{{ form.status.label }}</td><td>{{ form.status() }}</td></tr>
+                {% endif %}
+                <tr><td>{{ form.url.label }}</td><td>{{ form.url() }}</td></tr>
+                <tr><td>{{ form.body.label }}</td><td>{{ form.body() }}</td></tr>
+                <tr><td>{{ form.solution.label }}</td><td>{{ form.solution() }}</td></tr>
+                <tr><td colspan="2">{{form.submit()}}</td></tr>
+                </table>
+            </form>
+
+        </div>
+
+
+
+
+{% endblock %}

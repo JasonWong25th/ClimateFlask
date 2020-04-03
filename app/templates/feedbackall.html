@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div class="containter">
+        <div class="jumbotron text-center">
+            <h1>Feedback</h1>
+        </div>
+    </div>
+    <div class="container">
+        <table class='table table-sm'>
+            <tr><th>Status</th><th>Priority</th><th>Author</th><th>Subject</th><th>Created</th></tr>
+            {% for fback in fbacks %}
+
+            <tr>
+                <td>{{s1}}{{fback.status}}{{s2}}</td>
+                <td>{{fback.priority}} </td>
+                <td>{{fback.author.fname}} {{fback.author.lname}} </td>
+                <td><a href='/feedback/{{fback.id}}'>
+                    {% if fback.status == "2-Complete" %}
+                        <s>
+                    {% endif %}
+                        {{fback.subject}}
+                    {% if fback.status == "2-Complete" %}
+                        </s>
+                    {% endif %}
+                    </a></td>
+                <td>{{moment(fback.createdate).calendar()}} </td>   
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br><br><br>
+
+
+{% endblock %}

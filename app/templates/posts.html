@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div class="containter">
+        <div class="jumbotron text-center">
+            <h1>Posts</h1>
+            <a href='/newpost'>New Post</a>
+        </div>
+    </div>
+    <div class="container">
+        <table class='table'>
+            <tr><th>Author</th><th>Subject</th><th>Created</th><th>Job/Feedback Title</th></tr>
+            {% for post in posts %}
+            <tr>
+                <td>{{post.user.fname}} {{post.user.lname}} </td>
+                <td>{{post.subject}}</td>
+                <td>{{post.createdate.strftime('%m/%d/%Y')}} </td>   
+                <td>  
+                {% if post.job %}
+                    <a href='/job/{{post.job.id}}'>{{post.job.title}}</a>
+                {% endif %}
+                {% if post.feedback %}
+                    <a href='/feedback/{{post.feedback.id}}'>{{post.feedback.subject}}</a>
+                {% endif %}
+                </td>
+            {% endfor %}
+        </table>
+    </div>
+    <br><br><br>
+
+
+{% endblock %}

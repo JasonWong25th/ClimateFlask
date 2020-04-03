@@ -1,0 +1,98 @@
+You need to get set up with two services in order to use this template.  If you are in a group, you can have one 
+group member do this.
+
+### Part one: Python Packagess ###
+
+This assumes you have installed Anaconda properly.
+
+Video of this part: https://drive.google.com/file/d/18e3mFSxdpPKRKnEPbkDto9dWXSBWnSup/view
+
+Organize your files.  To the left you should see only one level of "2020Capstone-Master".  If you see two levels you need to 
+go to the File menu again and choose "Open Folder" and be sure this time that you open the 2020Capstone-Master folder that 
+is inside the other 2020Capstone-Master Folder.
+
+Now you need to install all of python packages.  To do this, open the terminal in Visual Studio Code. If it is not
+already open then go to the Terminal menu and choose "New Terminal". If the terminal is set to "powershell" pull down the 
+terminal menu and choose "select default shell" then pick "Command Prompt" from the menu that opens at the top of your screen. 
+Then click the trash can in the terminal window pane and then open a new terminal. Now type the following commands:
+
+conda activate base
+pip install --user -r requirements.txt
+
+You should see several packages being downloaded and installed.
+You can check to see if it worked by clicking on the main.py to the left and then clicking the play button 
+at the top right of the screen.  You want to try and start the app after each stage of the install to see if 
+you did it right.
+
+Starting the app video: 
+https://drive.google.com/file/d/1UOPdNptU8R50AzZIZGhk3Yg1gKIeuBBo/view
+
+### Part Two: Google API to enable Google Login ###
+### This will not work with your OUSD GMail account so you need to use a personal GMail account ###
+
+    Here is a video of the process:
+    https://drive.google.com/file/d/1IZUmFK2XhZnGAzk7dr7UaUiJZDLhanx0/view
+
+1) Go to https://console.cloud.google.com/home/dashboard
+2) Log in with your personal email credentials 
+3) At the top of the screen click the project pulldown menu and then click "New Project" in the top left of the next window
+   then click the three lines in the top left to get a menu
+4) Give the project a descriptive name like the name of your app and click Create
+5) Click the three lines in the top left of the screen, and click API's & Services and then click Credentials
+6) Click Create Credentials and then click OAuth Client ID
+7) You will probably be asked to fill out some fields for the "Consent Screen".  The only important part is that you click 
+    the option to allow people "outside of your organization" to access your app.  If you do not do that then only you will be 
+    able to login.  The reset of the options are not important for how your app works
+    but are important for communicating to your user what they are consenting to.  Fill it out.
+8) Then click Web Application, 
+9) Give this a descriptive name like the name of your app.
+10) You can leave javascript origins blank
+11) in authorized redirect URI's you need to put both:
+    https://localhost:5000/oauth2callback
+    https://127.0.0.1:5000/oauth2callback
+12) Click Create
+13) now go here to enable the People API:
+    https://console.cloud.google.com/apis/library/people.googleapis.com?q=people
+    Click enable
+13) You should now be on the Credentials page for you project here:
+    https://console.cloud.google.com/apis/credentials
+    Look for "OAuth 2.0 Client IDs" and you should see the name for the credentials you just created.  Click that.
+    It should say "Client ID for Web application" 
+    at the top and next to that it should say Download JSON.  Click download JSON.
+14) The JSON file you download you need to rename to --> "credentials.json" and put it in your files at the same 
+    level of your flask app as the "main.py" file.
+
+Once again, start the app to see if you did it right.  This time you should be able to login!
+You will eventually get an error.  Probably the error will be a "pymongo" error.
+
+### Step Three: hook up your database ###
+
+Here is a video:
+https://drive.google.com/file/d/1tDZzE4Yb2C8OK6MXn4n_8LgQyHFr9eCW/view
+
+The next is mongodb.com where you will create your database and all the data from your site will be stored.
+Here is a link to video I made about the process for getting a mongodb.com account:
+1) I will describe the basic process to see how to get an account at mongodb.com and find the 
+    code you need to include in your app.
+2) Sign up for an account at mongodb.com.  Click the "sign up" and NOT the "Try it Free" link.  This way you can
+    create a new account with your google credentials.
+3) You then going to get a free database "cluster".  Follow the instructions to do this.  Once you click the "Create Cluster"
+    button it will take a while for the cluster to be created. The new cluster will be greyed out until it is done.  When 
+    the new cluster is ready you will be able to click the connect button.
+4) click the connect button and then add 0.0.0.0 as teh whitelist IP.  This will make it possible to administer your 
+    database from anywhere.  Also add and new database admin and password.  This password will be viwable by a lot of people 
+    in class so don't use one that you already use for other important things.  Something simple like Admin and BullDogz.
+5) Now you need to choose a connection method.  Click "Connect Your Application" and then configure the screen to give you the 
+    code for Python 3.6 and above and click "Copy"
+6) At the end of the video you will have copied a string that looks like this:
+    mongodb+srv://admin:<password>@cluster0-8m0v1.gcp.mongodb.net/test?retryWrites=true&w=majority   
+    and now you need to paste it in to your app. 
+7) Go to the __init__.py file in the app folder (app/__init__.py) and replace the connect string that is there
+    and replace <dbuser> with the username you just created
+    and replace <dbpassword> with the password you just created
+8) take that string and place it in the __init__.py file in the app folder
+
+You should be ready to go!
+
+Then click on the main.py file. You might get a popup window asking you to install pythin. Do that. Then in the top left of 
+your screen you should see a green triangle. Click it to run the app. Weeeeeeeeeeeee!!!!

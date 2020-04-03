@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-3">
+        <a href="/calendar/{{month}}/{{year}}" class="btn btn-primary btn-md">Back to Calendar</a>
+      </div>
+      <div class="col-6">
+        <h1>{{month}} {{day}}, {{year}}</h1>
+      </div>
+      <div class="col-3">
+        <a href="/newevent" class="btn btn-lg btn-primary">New Event</a>
+      </div>
+    </div>
+    <hr>
+    <div class="list-group">
+      {% for event in events %}
+        {% if event.owner.gid == session['gid'] and year == event.date[0] and month == event.date[1] and day|string == event.date[2] %}
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{event.title}}</h5>
+                <small>Time: {{event.date[3]}}</small>
+              </div>
+              <p class="mb-1">
+                {{event.desc}}
+              </p>
+              {% if event.job %}
+              <p class="mb-1">
+                Associated job: <a href="/job/{{event.job.id}}">{{event.job.title}}</a>
+              </p>
+              {% endif %}
+              <a href="/deleteevent/{{event.id}}">delete</a>
+            </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

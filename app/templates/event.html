@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div class="containter">
+        <div class="jumbotron text-center">
+            <h1>{{event['title']}}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        Owner: {{ event['owner']['fname'] }} {{ event['owner']['lname'] }}<br>
+        Description: {{ event['description'] }}<br>
+        Date: {{ event['date'] }}<br>
+        Time: {{  event.time }}<br>
+        {% if event.job %}   
+            Job: {{ event.job.title }}<br>
+        {% endif %}
+        
+    </div>
+    <br><br><br>
+
+{% endblock %}

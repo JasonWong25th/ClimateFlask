@@ -1,0 +1,46 @@
+<!-- This is the navbar code. This code will be included in all of the template files. -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:  #800080">
+  <a class="navbar-brand" href="/">OT Computer Science WebApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li>
+        <a class="nav-link active" href="/calendar">My Calendar</a>
+      </li>
+      <li>
+        <a class="nav-link active" href="#">OtherLinks</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      {% if session['credentials'] and session["displayName"] %}
+
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Feedback
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/newfeedback/{{ request.full_path.replace('/','zzz') }}">New Feedback</a>
+                <a class="dropdown-item" href="/feedbackall">All Feedback</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ session["displayName"] }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+                <a class="dropdown-item" href="/revoke">Forget Me</a>
+            </div>
+          </li>
+      {% else %}
+          <li class="nav-item active">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

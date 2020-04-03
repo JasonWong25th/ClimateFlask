@@ -1,0 +1,1 @@
+The includes folder is where files go that will be included in multiple other files.  Like the navbar.  Could also include a footer for example.

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+        <div class="containter">
+            <div class="jumbotron text-center">
+                <h1>Edit Profitle</h1>
+            </div>
+
+            {% for field in form.errors %}
+                {% for error in form.errors[field] %}
+                    <div class="alert alert-error">
+                        <strong>Error!</strong>{{field}}: {{error}}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <form method=post>
+                <table class="table">
+                <!--This displays the form from the form abject that was passed to the template. If the fileds have values in them
+                    that were set by the routes code, then it will be editing.  If they are empty it 
+                    will create a new secion. -->
+                <tr><td>{{ form.hidden_tag() }}{{ form.fname.label }}</td><td>{{ form.fname }}</td></tr>
+                <tr><td>{{ form.lname.label }}</td><td>{{ form.lname() }}</td></tr>
+                <tr><td>{{ form.pronouns.label }}</td><td>{{ form.pronouns() }}</td></tr>
+                <tr><td>{{ form.image.label }}</td><td>{{ form.image(size=100) }}</td></tr>
+                <tr><td>{{ form.birthdate.label }}</td><td>{{ form.birthdate() }}</td></tr>
+                <tr><td colspan="2">{{form.submit()}}</td></tr>
+                </table>
+            </form>
+
+        </div>
+
+
+
+
+{% endblock %}

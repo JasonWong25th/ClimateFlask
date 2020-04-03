@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="containter">
+            <table class="table table-active table-sm">
+                <tr>
+                    <td><h1>{{fback['subject']}}</h1>
+                        <a class="btn btn-primary btn-sm" href="/editfeedback/{{fback['id']}}">Edit</a>  
+                        <a class="btn btn-primary btn-sm" href="/deletefeedback/{{fback['id']}}">Delete</a>
+                        <a class="btn btn-primary btn-sm" href="/feedbackall">All Feedback
+                    </td>
+                </tr>
+            </table>        
+        </div>
+        <div class="container">
+            <table class='table table-sm'>
+                <tr><td>Author</td><td>{{fback.author.fname}} {{fback.author.lname}} </td></tr>
+                <tr><td>Priority:</td><td>{{fback.priority}}</td></tr> 
+                <tr><td>Subject:</td><td>{{fback.subject}}</td></tr>  
+                <tr><td>Description:</td><td>{{fback.body}}</td></tr>  
+                <tr><td>Solution:</td><td>{{fback.solution}}</td></tr>
+                <tr><td>URL:</td><td><a href='{{ request.url_root}}{{ fback.url }}'>{{ request.url_root}}{{ fback.url }}</a></td></tr>
+                <tr><td>Created</td><td>{{moment(fback.createdate).calendar()}} </td></tr>
+                <tr><td>Status</td><td>{{fback.status}} </td></tr>  
+                {% if fback.modifydate %}
+                    <tr><td>Modified</td><td>{{moment(fback.modifydate).calendar()}} </td></tr>  
+                {% endif %}    
+            </table>
+            <table class="table table-active table-sm">
+                <tr><td>Conversation</td><td><a class="btn btn-primary btn-sm" href="/feedbackpost/{{fback.id}}">New</a></td><td></td></tr>
+                {% for fbackpost in fbackposts %}
+                    <tr><td>{{fbackpost.user.fname}} {{fbackpost.user.lname}} </td>
+                        <td><a href="/post/{{fbackpost.id}}">{{fbackpost.subject}}</a></td>
+                        <td>{{fbackpost.body}}</td>
+                        <td><a class="btn btn-primary btn-sm" href="/post/{{fbackpost.id}}">Reply</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <br><br><br>
+
+{% endblock %}

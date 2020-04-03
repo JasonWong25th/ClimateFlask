@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div class="containter">
+        <div class="jumbotron text-center">
+            <h1>{{post['subject']}}</h1>
+            {% if post.job %}
+                <table class='table'><tr><td colspan='2' align='left'>The is a post associated with a job</td></tr>
+                <tr><td align='right'>Job Owner</td><td align='left'> {{post.job.owner.fname}} {{post.job.owner.lname}}</td></tr>
+                <tr><td align='right'>Job Title</td><td align='left'><a href='/job/{{post.job.id}}'>{{post.job.title}}</a> </td></tr></table>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="container">
+                    <table class='table'>
+                        <tr><td>Author</td><td>{{post.user.fname}} {{post.user.lname}} </td></tr>
+                        <tr><td>Subject:</td><td>{{post.subject}}</td></tr>  
+                        <tr><td></td><td>{{post.body}}</td></tr>  
+                        <tr><td>Created</td><td>{{post.createdate}} </td></tr>  
+                        {% if post.modifydate %}
+                            <tr><td>Modified</td><td>{{post.modifydate}} </td></tr>  
+                        {% endif %}    
+                        <tr>
+                            <td colspan="2">
+                                <a href="/post/{{post['id']}}">View</a> - 
+                                <a href="/editpost/{{post['id']}}">Edit</a> - 
+                                <a href="/deletepost/{{post['id']}}">Delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        <hr>
+        <h3>Comments</h3>
+        {% for comment in comments %}
+            {{comment['comment']}}<br>
+            {{comment['user']['fname']}} {{comment['user']['lname']}} {{comment['createdate']}}<br>
+            <a href="/deletecomment/{{post['id']}}/{{comment['id']}}">Delete</a><hr>
+        {% endfor %}
+        <a href="/newcomment/{{post['id']}}">New Comment</a>
+    </div>
+    <br><br><br>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+<!--You will likely make extensive edits to this file but I would suggest holding on this file (copy and rename)
+because it is really help to be able to pull up all the values that are available for each user in the session,
+via google and via the User data object-->
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="containter">
+    <div class="jumbotron text-center">
+        <h1>Profile for {{ session['displayName'] }}</h1>
+        <img src="{{currUser['image']}}" alt="user image"><br>
+        <a class="btn btn-primary" href="/editprofile">Edit User</a>
+    </div>
+
+    <div>
+        <h3>The User Object from this site</h3>
+        <table class="table">
+        {% for item in currUser %}
+        <tr>
+            <td>{{item}}</td> <td> {{ currUser[item] }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+        <h3>The Data Object from Google</h3>
+        <table class="table">
+        {% for item in data %}
+        <tr>
+            <td>{{ item }}</td> <td>{{data[item]}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+        <h3>The Session Object</h3>
+        <table class="table table=sm">
+        {% for item in session %}
+        <tr>
+            <td>{{ item }}</td> <td>{{session[item]}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        
+    </div>
+    <br><br><br>
+</div>
+
+{% endblock %}

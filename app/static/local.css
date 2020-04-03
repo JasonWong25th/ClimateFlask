@@ -1,0 +1,39 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . . . . . .";
+}
+
+.daylabel {
+    align-self: end;
+}
+  
+.event-badge {
+    color: red;
+} 
+
+.logo-image {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    padding-right: 5px;
+}
+
+.btn-static {
+    background-color: white;
+    border: 1px solid lightgrey;
+    cursor: default;
+}
+
+.btn-static:active {
+    -moz-box-shadow: inset 0 0 0px white;
+    -webkit-box-shadow: inset 0 0 0px white;
+    box-shadow: inset 0 0 0px white;
+}
+
+
+.btn-medal {
+    border-radius: 50%;
+    background-color: gold;
+}

@@ -1,0 +1,33 @@
+<!--This file renders the new and edit comment form. It is part of the posting and commenting system-->
+
+{% extends "base.html" %}
+{% block body %}
+
+        <div class="containter">
+            <div class="jumbotron text-center">
+                <h1>New Comment</h1>
+                {{ post.subject }}<br>
+                {{ post.body }}
+            </div>
+
+            {% for field in form.errors %}
+                {% for error in form.errors[field] %}
+                    <div class="alert alert-error">
+                        <strong>Error!</strong>{{field}}: {{error}}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <form method=post>
+                <table class="table">
+                <!--This displays the form from the form abject that was passed to the template. If the fileds have values in them
+                    that were set by the routes code, then it will be editing.  If they are empty it 
+                    will create a new secion. -->
+                <tr><td>{{ form.hidden_tag() }}{{ form.comment.label }}</td><td>{{ form.comment() }}</td></tr>
+                <tr><td colspan="2">{{form.submit()}}</td></tr>
+                </table>
+            </form>
+
+        </div>
+
+{% endblock %}
