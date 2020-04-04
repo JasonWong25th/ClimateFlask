@@ -115,9 +115,9 @@ def login():
 
     # get the google email address from the data object and check to see if the user has an ousd email account.  
     # Deny access if they do not
-    if not data['emailAddresses'][0]['value'][-8:] == "ousd.org":
-        flash('You must have an ousd.org email address to access this site')
-        return redirect(url_for('logout'))
+    #if not data['emailAddresses'][0]['value'][-8:] == "ousd.org":
+    #    flash('You must have an ousd.org email address to access this site')
+    #    return redirect(url_for('logout'))
 
     try:
         # see if the user already exists in the user dtabase document. If they don't then this attempt
@@ -170,7 +170,7 @@ def login():
         flash(f'Welcome {currUser.fname}.  A New user has been created for you.')
 
     # this code puts several values in the session list variable.  The session variable is a great place
-    # to store values that you want to be able to access while a user is logged in. The va;ues in the sesion
+    # to store values that you want to be able to access while a user is logged in. The values in the sesion
     # list can be added, changed, deleted as you would with any python list.
     session['currUserId'] = str(currUser.id)
     session['displayName'] = currUser.fname+" "+currUser.lname

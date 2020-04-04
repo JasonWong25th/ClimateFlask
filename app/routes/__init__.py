@@ -6,5 +6,6 @@
 from .users import *
 from .posts import *
 from .calendar import *
+from .globe import *
 from .feedback import *
 from .scopes import *
