@@ -12,4 +12,6 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY") or os.urandom(20)
 connect("<ClimateApp>", host='mongodb+srv://jWong:yesThisIsMyPassword@firstcluster-yt63x.gcp.mongodb.net/test?retryWrites=true&w=majority')
 moment = Moment(app)
 
+
+
 from .routes import *

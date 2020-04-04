@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container">
+    <h1>News stuff</h1>
+
+    {%for newsTitle, desc, image in articleList%}
+        <img scr = "{{image}}">
+        <h3>News: </h3> {{newsTitle}} 
+        <h3>Desciption: </h3> {{desc}} 
+
+    {%endfor%}
+
+</div>
+
+{% endblock %}
