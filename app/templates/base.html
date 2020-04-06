@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Put the title of your app here-->
-    <title>The Globe</title>
+    <title>The Corals</title>
     <!--This is where the link to the favicon and local CSS file goes.  The files that are referenced are in the static folder.-->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='local.css') }}"  type="text/css" />
@@ -28,11 +28,14 @@
           those messages are displayed -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <mark>
                 {% for message in messages %}
-                    {{ message }}<br>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      {{message}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
                 {% endfor %}
-            </mark><br><br>
             {% endif %}
         {% endwith %}
 

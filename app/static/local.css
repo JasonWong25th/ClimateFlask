@@ -53,7 +53,6 @@ a:hover {
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: 0.05rem solid #fff;
@@ -65,8 +64,12 @@ a:hover {
 
 html,
 body {
-  height: 100%;
-  background-image: url(https://gifimage.net/wp-content/uploads/2018/11/cartoon-earth-gif-4.gif);
+  height: 100vh;
+}
+
+#banner {
+height:100%;
+background-image: url(https://gifimage.net/wp-content/uploads/2018/11/cartoon-earth-gif-4.gif);
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -91,14 +94,14 @@ body {
 .nav-masthead .nav-link {
   padding: 0.25rem 0;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   background-color: transparent;
   border-bottom: 0.25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, 0.25);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -123,11 +126,16 @@ body {
  * Cover
  */
 .cover {
-  padding: 0 1.5rem;
+  padding: 10rem 1.5rem;
+  height: 100vh;
+  /*margin-top: 20vh;   ---- uncomment this if i uncomment the potential navbar */
 }
 .cover .btn-lg {
   padding: 0.75rem 1.25rem;
   font-weight: 700;
+}
+.cover-heading{
+    margin: 1em;
 }
 
 /*

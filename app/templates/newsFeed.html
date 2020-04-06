@@ -4,14 +4,23 @@
 
 <div class="container">
     <h1>News stuff</h1>
+    
+    <div class="row justify-content-center">
     {%for newsTitle, desc, image in articleList%}
-        <img src = {{image}} alt = "">
-        <h5>News: </h5> {{newsTitle}} 
-        <h6>Desciption: </h6> {{desc}} 
+        <div class="card mb-4 mx-1" style="width: 18rem;">
+		  <img class="card-img-top" src={{image}} alt="News Article Image">
+		  <div class="card-body">
+		  	 <h5 class="card-title">{{newsTitle}}</h5>
+		    <p class="card-text">
+		    	{{desc}}
+		    </p>
+		  </div>
+		</div>
+		
         <br>
 
     {%endfor%}
-
+</div>
 </div>
 
 {% endblock %}
