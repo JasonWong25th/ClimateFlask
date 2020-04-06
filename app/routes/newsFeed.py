@@ -8,15 +8,51 @@ import requests
 import datetime as dt
 from bson import ObjectId
 
+import json
 
 from newsapi import NewsApiClient
 
 #Routing for the News Portion
 @app.route('/newsFeed', methods=['GET', 'POST'])
 def newsfeed():
+    url = ('http://newsapi.org/v2/everything?'
+       'q=climate&'
+       'sortBy=relevancy&'
+       'apiKey=6030a33d2e814654a43ce7aa2c368df7')
     #Grabs Data from news API
+    rawResponses = requests.get(url).json()
+
+
+    news = []
+    desc = []
+    img = []
+
+    if(rawResponses['status'] == "ok"):
+        for i in range(len(rawResponses['articles'])):
+            myarticle = rawResponses['articles'][i]
+            news.append(myarticle['title'])
+            desc.append(myarticle['description'])
+            img.append(myarticle['urlToImage'])
+
+
+    '''
+    news_json = json.loads()
+
+    news = []
+    desc = []
+    img = []
+
+    if(rawResponses[1] == "ok"):
+        for i in rawResponses['totalResults']:
+            myarticle = rawResponses['articles']
+            news.append(myarticle['title'])
+            desc.append(myarticle['description'])
+            img.append(myarticle['urlToImage'])
+
+
+    
     newsapi = NewsApiClient(api_key='6030a33d2e814654a43ce7aa2c368df7')
-    top_headlines = newsapi.get_top_headlines(sources="cnn")
+    top_headlines = newsapi.get_everything(sources="national-geographic")
 
     articles = top_headlines['articles']
 
@@ -33,4 +69,6 @@ def newsfeed():
     articleList = zip(news,desc,img)
     #Send the data to the html template
     #render the template
+    '''
+    articleList = zip(news,desc,img)
     return render_template("newsFeed.html", articleList = articleList)

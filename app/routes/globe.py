@@ -10,7 +10,6 @@ from bson import ObjectId
 
 #Routing for the globe
 
-@app.route('/globe/<currUserName>', methods=['GET', 'POST'])
-def globe(currUserName):
-    flash(f'Welcome {currUserName}.  This is your globe.')
-    return(render_template("globe.html"))
+@app.route('/the-globe-of-extremes-master/globe', methods=['GET', 'POST'])
+def globe():
+    return(render_template("../the-globe-of-extremes-master/globe.html"))

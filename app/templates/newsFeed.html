@@ -4,11 +4,11 @@
 
 <div class="container">
     <h1>News stuff</h1>
-
     {%for newsTitle, desc, image in articleList%}
-        <img scr = "{{image}}">
-        <h3>News: </h3> {{newsTitle}} 
-        <h3>Desciption: </h3> {{desc}} 
+        <img src = {{image}} alt = "">
+        <h5>News: </h5> {{newsTitle}} 
+        <h6>Desciption: </h6> {{desc}} 
+        <br>
 
     {%endfor%}
 
