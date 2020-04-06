@@ -8,8 +8,9 @@ import requests
 import datetime as dt
 from bson import ObjectId
 
+
 #Routing for the globe
 
-@app.route('/the-globe-of-extremes-master/globe', methods=['GET', 'POST'])
+@app.route('/globe', methods=['GET', 'POST'])
 def globe():
-    return(render_template("../the-globe-of-extremes-master/globe.html"))
+    return(render_template("globe.html"))
