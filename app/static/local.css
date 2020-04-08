@@ -68,12 +68,12 @@ body {
 }
 
 #banner {
-height:100%;
+height:50%;
 background-image: url(https://gifimage.net/wp-content/uploads/2018/11/cartoon-earth-gif-4.gif);
+background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  text-align: center;
-  position: relative;
+
 }
 
 .cover-container {
@@ -127,7 +127,7 @@ background-image: url(https://gifimage.net/wp-content/uploads/2018/11/cartoon-ea
  */
 .cover {
   padding: 10rem 1.5rem;
-  height: 100vh;
+  height: 70%;
   /*margin-top: 20vh;   ---- uncomment this if i uncomment the potential navbar */
 }
 .cover .btn-lg {

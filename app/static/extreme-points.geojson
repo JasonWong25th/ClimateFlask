@@ -4,23 +4,23 @@
       "type": "Feature",
       "properties": {
         "name": "Mount Everest",
-        "type": "Highest point on Earth's surface ○ 8,848m (29,029ft)",
-        "location": "Peak located in the Mahalangur Himal sub-range of the Himalayas on the border of Nepal and China.",
+        "type": "Largest Coral Reef on the planet. It's known as one of the seven wonders of the world!",
+        "location": "Located at the North East of Australia",
         "facts": "An expedition in 1924 resulted in one of the greatest mysteries on Everest to this day: George Mallory and Andrew Irvine made a final summit attempt on 8 June but never returned, sparking debate as to whether or not they were the first to reach the top. They had been spotted high on the mountain that day but disappeared in the clouds, never to be seen again, until Mallory's body was found in 1999 at 8,155 m (26,755 ft) on the north face. Officially, the peak was first reached by Sir Edmund Hillary of New Zealand and Sherpa of Nepal Tenzing Norgay in 1953.",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Everest_kalapatthar.jpg",
-        "imageCaption": "Mount Everest from Kalapatthar",
-        "imageCopyright": "Image by Pavel Novack under CC BY-SA2.5",
-        "imageCopyrightUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-        "source": "Wikipedia Mount Everest article",
-        "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Everest",
-        "sourceCopyright": "CC BY-SA 3.0",
-        "sourceCopyrightUrl": "https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License"
+        "imageUrl": "https://cdn.cnn.com/cnnnext/dam/assets/200407131304-02-great-barrier-reef-bleaching-04-07-exlarge-169.jpg",
+        "imageCaption": "Great Barrier Reef After 2020 Bleaching",
+        "imageCopyright": "no consent for this photo",
+        "imageCopyrightUrl": "no consent for this photo",
+        "source": "CNN 2020 Coral Bleaching Article",
+        "sourceUrl": "https://www.cnn.com/2020/04/07/australia/great-barrier-reef-bleaching-2020-intl-hnk/index.html",
+        "sourceCopyright": "no consent",
+        "sourceCopyrightUrl": "no consent"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          86.925061,
-          27.988271
+          147.485962,
+          -18.156290
         ]
       }
     },

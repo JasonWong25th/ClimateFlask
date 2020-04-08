@@ -4,36 +4,27 @@
 
 {% block body %}
 <!--This is the home page -->
-<div id="banner">
-<div class="container">
-  <!-- I kind of like the current bootstrap nav with the new blue 
-
-     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="text-white mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Cover</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Contact</a>
-          </nav>
-        </div>
-      </header>
-  -->
-
-      <main role="main" class="inner cover text-white">
-        <h1 class="cover-heading">Welcome to <strong>The Corals</strong>  Web App! <br> <small class="text-muted">-- by Dante, Jennifer, & Jason<small></h1>
-        <p class="lead">
+<section id="banner">
+  <div class="text-center">
+        <div class="cover d-flex flex-column align-items-center text-white">
+          <h1 class="cover-heading">
+            Welcome to <strong>The Corals</strong>  Web App! <br> <small class="text-muted">-- by Dante, Jennifer, & Jason<small>
+          </h1>
+            <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
           
-        </p>
-        <p class="">
-          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-        </p>
-      </main>
+        </div>        
+  </div>
+</section>
 
-      
-    </div>
-</div>
-</div>
+<section class="jumbotron jumbotron-fluid">
+  <div class="container">
+
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  </div>
+
+</section>
 
 {% endblock %}
