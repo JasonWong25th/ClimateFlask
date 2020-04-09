@@ -10,3 +10,4 @@ from .globe import *
 from .newsFeed import *
 from .feedback import *
 from .scopes import *
+from .location import *

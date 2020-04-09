@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="container">
+            <table class='table table-sm'>
+                <tr><td>Author</td><td>{{locationData.author.fname}} {{locationData.author.lname}} </td></tr>
+                <tr><td>Name:</td><td>{{locationData.name}}</td></tr>  
+                <tr><td>Description:</td><td>{{locationData.desc}}</td></tr>  
+                <tr><td>Created</td><td>{{moment(locationData.createdate).calendar()}} </td></tr>
+                <tr><td>Image</td><td>{{locationData.image}} </td></tr>
+                <tr><td>Longitude</td><td>{{locationData.longitude}} </td></tr>
+                <tr><td>Latitude</td><td>{{locationData.latitude}} </td></tr>
+            </table>
+        </div>
+    </div>
+    <br><br><br>
+
+{% endblock %}
