@@ -2,6 +2,12 @@
 
 {% block body %}
     <div class="container">
+        <div class = "container">
+            <a class="btn btn-primary btn-sm" href="/editLocationData/{{locationData['id']}}">Edit</a>  
+            <a class="btn btn-primary btn-sm" href="/deleteLocationData/{{locationData['id']}}">Delete</a>
+            <a class="btn btn-primary btn-sm" href="/allLocationData">All Location Inputs</a>
+        </div>
+
         <div class="container">
             <table class='table table-sm'>
                 <tr><td>Author</td><td>{{locationData.author.fname}} {{locationData.author.lname}} </td></tr>
