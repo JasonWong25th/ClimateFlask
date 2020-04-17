@@ -12,8 +12,8 @@ from bson.objectid import ObjectId
 import datetime as dt
 
 class LocationForm(FlaskForm):
-    name = StringField("What's the location's name")
-    desc = StringField("What is the description")
+    name = StringField("Location's name")
+    desc = StringField("Location's description")
     image = FileField('image', validators=[
         FileRequired(),
         FileAllowed(['jpg', 'png'], 'Images only!')

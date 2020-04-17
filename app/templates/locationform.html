@@ -1,19 +1,60 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <div class="container">
-        <form action = "" method = "POST">
+    <div class="container d-flex justify-content-center">
+        <div class="card col-md-8 mt-5 pt-3">
+            <div class="card-header bg-transparent">
+                <h2>Add a New Location to the Globe!</h2>
+            </div>
+            <img class="card-img-top" src="https://cdn.dribbble.com/users/162970/screenshots/6466687/earth-dribbble.gif" alt="Card image cap">
+          <div class="card-body">
+                <form action = "" method = "POST">
             {{form.hidden_tag()}}
-            <p>
-            {{form.name.label}}{{form.name()}}<br>
-            {{form.image()}}<br>
-            {{form.desc.label}}{{form.desc()}}<br>
-            {{form.longitude.label}}{{form.longitude()}}<br>
-            {{form.latitude.label}}{{form.latitude()}}<br>
-            {{form.submit()}}<br>
-            </p>
-        </form>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="locationLabel">{{form.name.label}}</label>
+                  {{form.name(class_="form-control", placeholder="Oakland, CA.", id="locationLabel")}}
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="locationDescription">{{form.desc.label}}</label>
+                  {{form.desc(class_="form-control", id="locationDescription", placeholder="Oakland is within the East Bay. Lots of trash, etc.")}}
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group custom-file col-md-6">
+                  <label class="custom-file-label text-center" for="customFile">Image</label>
+                  <span id="filler">Choose Location Image</span>
+                   {{form.image(id="customFile", class_="custom-file-input")}}
+                </div>
+                
+                <div class="form-group col-md-3">
+                  <label for="locationLon">{{form.longitude.label}}</label>
+                  {{form.longitude(class_="form-control", id="locationLon", placeholder="420")}}
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="locationLat">{{form.latitude.label}}</label>
+                  {{form.latitude(class_="form-control", id="locationLat", placeholder="69")}}
+                </div>
+              </div>
+              
+              {{form.submit(class_="btn btn-primary")}}
+            </form>
+          </div>
+        </div>
+        
 
     </div>
 
+    <script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+    </script>
+
+
 {% endblock %}
+
